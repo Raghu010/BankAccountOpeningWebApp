@@ -22,6 +22,205 @@ namespace BankAccountOpening.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("BankAccountOpening.Models.States", b =>
+                {
+                    b.Property<int>("StateId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StateId"));
+
+                    b.Property<string>("StateName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("StateId");
+
+                    b.ToTable("states");
+
+                    b.HasData(
+                        new
+                        {
+                            StateId = 1,
+                            StateName = "Andhra Pradesh"
+                        },
+                        new
+                        {
+                            StateId = 2,
+                            StateName = "Arunachal Pradesh"
+                        },
+                        new
+                        {
+                            StateId = 3,
+                            StateName = "Assam"
+                        },
+                        new
+                        {
+                            StateId = 4,
+                            StateName = "Bihar"
+                        },
+                        new
+                        {
+                            StateId = 5,
+                            StateName = "Chhattisgarh"
+                        },
+                        new
+                        {
+                            StateId = 6,
+                            StateName = "Goa"
+                        },
+                        new
+                        {
+                            StateId = 7,
+                            StateName = "Gujarat"
+                        },
+                        new
+                        {
+                            StateId = 8,
+                            StateName = "Haryana"
+                        },
+                        new
+                        {
+                            StateId = 9,
+                            StateName = "Himachal Pradesh"
+                        },
+                        new
+                        {
+                            StateId = 10,
+                            StateName = "Jharkhand"
+                        },
+                        new
+                        {
+                            StateId = 11,
+                            StateName = "Karnataka"
+                        },
+                        new
+                        {
+                            StateId = 12,
+                            StateName = "Kerala"
+                        },
+                        new
+                        {
+                            StateId = 13,
+                            StateName = "Madhya Pradesh"
+                        },
+                        new
+                        {
+                            StateId = 14,
+                            StateName = "Maharashtra"
+                        },
+                        new
+                        {
+                            StateId = 15,
+                            StateName = "Manipur"
+                        },
+                        new
+                        {
+                            StateId = 16,
+                            StateName = "Meghalaya"
+                        },
+                        new
+                        {
+                            StateId = 17,
+                            StateName = "Mizoram"
+                        },
+                        new
+                        {
+                            StateId = 18,
+                            StateName = "Nagaland"
+                        },
+                        new
+                        {
+                            StateId = 19,
+                            StateName = "Odisha"
+                        },
+                        new
+                        {
+                            StateId = 20,
+                            StateName = "Punjab"
+                        },
+                        new
+                        {
+                            StateId = 21,
+                            StateName = "Rajasthan"
+                        },
+                        new
+                        {
+                            StateId = 22,
+                            StateName = "Sikkim"
+                        },
+                        new
+                        {
+                            StateId = 23,
+                            StateName = "Tamil Nadu"
+                        },
+                        new
+                        {
+                            StateId = 24,
+                            StateName = "Telangana"
+                        },
+                        new
+                        {
+                            StateId = 25,
+                            StateName = "Tripura"
+                        },
+                        new
+                        {
+                            StateId = 26,
+                            StateName = "Uttar Pradesh"
+                        },
+                        new
+                        {
+                            StateId = 27,
+                            StateName = "Uttarakhand"
+                        },
+                        new
+                        {
+                            StateId = 28,
+                            StateName = "West Bengal"
+                        },
+                        new
+                        {
+                            StateId = 29,
+                            StateName = "Andaman and Nicobar Islands"
+                        },
+                        new
+                        {
+                            StateId = 30,
+                            StateName = "Chandigarh"
+                        },
+                        new
+                        {
+                            StateId = 31,
+                            StateName = "Dadra and Nagar Haveli and Daman and Diu"
+                        },
+                        new
+                        {
+                            StateId = 32,
+                            StateName = "Delhi"
+                        },
+                        new
+                        {
+                            StateId = 33,
+                            StateName = "Jammu and Kashmir"
+                        },
+                        new
+                        {
+                            StateId = 34,
+                            StateName = "Ladakh"
+                        },
+                        new
+                        {
+                            StateId = 35,
+                            StateName = "Lakshadweep"
+                        },
+                        new
+                        {
+                            StateId = 36,
+                            StateName = "Puducherry"
+                        });
+                });
+
             modelBuilder.Entity("BankAccountOpening.Models.UserDetails", b =>
                 {
                     b.Property<int>("FormNo")
