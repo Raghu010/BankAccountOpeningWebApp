@@ -1,8 +1,45 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<BankAccountOpening.Models.UserDetails>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th colspan="12" class="text-center">Bank Account Opening Form List Today - @DateTime.Now.ToString("dd/MM/yyyy")</th>
+        </tr>
+        <tr>
+            <th>Date Time</th>
+            <th>Form No</th>
+            <th>Title</th>
+            <th>First name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Sex</th>
+            <th>Age</th>
+            <th>Mobile No.</th>
+            <th>Email id</th>
+            <th>Branch</th>
+            <th>Type of account</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var account in Model)
+        {
+            <tr>
+                <td>@account.dateTime</td>
+                <td>@account.FormNo</td>
+                <td>@account.title</td>
+                <td>@account.FirstName</td>
+                <td>@account.MiddleName</td>
+                <td>@account.LastName</td>
+                <td>@account.Sex</td>
+                <td>@account.Age</td>
+                <td>@account.MobileNo</td>
+                <td>@account.EmailId</td>
+                <td>@account.BranchName</td>
+                <td>@account.TypeOfAccount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" asp-controller="home" class="btn btn-primary m-1">New</a>
+<a asp-action="Quit" asp-controller="home" class="btn btn-primary m-1">Quit</a>
