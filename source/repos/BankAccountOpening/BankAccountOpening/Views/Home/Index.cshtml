@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<BankAccountOpening.Models.UserDetails>
 
-<table class="table">
+<table class="table table-bordered">
     <thead>
         <tr>
-            <th colspan="12" class="text-center">Bank Account Opening Form List Today - @DateTime.Now.ToString("dd/MM/yyyy")</th>
+            <th colspan="13" class="text-center">Bank Account Opening Form List Today - @DateTime.Now.ToString("dd/MM/yyyy")</th>
         </tr>
         <tr>
             <th>Date Time</th>
@@ -38,8 +38,13 @@
                 <td>@account.TypeOfAccount</td>
             </tr>
         }
+        <tr>
+            <td colspan="13" class="text-center">
+                <a asp-action="Create" asp-controller="home" class="btn btn-primary mx-2">New</a>
+                <a asp-action="Quit" asp-controller="home" class="btn btn-danger mx-2">Quit</a>
+            </td>
+        </tr>
     </tbody>
 </table>
 
-<a asp-action="Create" asp-controller="home" class="btn btn-primary m-1">New</a>
-<a asp-action="Quit" asp-controller="home" class="btn btn-primary m-1">Quit</a>
+
