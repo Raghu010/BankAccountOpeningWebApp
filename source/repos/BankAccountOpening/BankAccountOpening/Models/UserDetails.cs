@@ -4,6 +4,7 @@ namespace BankAccountOpening.Models
 {
     public class UserDetails
     {
+        [Key]
         public int FormNo { get; set; }
         [Required]
         [DataType(DataType.DateTime)]
@@ -24,6 +25,7 @@ namespace BankAccountOpening.Models
         [Required]
         public int Age => DateTime.Now.Year - DateOfBirth.Year;
         [MaxLength(10, ErrorMessage = "Mobile Number can not exceed 10 chars.")]
+        
         public string StdCode { get; set; }
         [MaxLength(10, ErrorMessage = "Mobile Number can not exceed 10 chars.")]
         public string Telephone { get; set; }
@@ -31,6 +33,7 @@ namespace BankAccountOpening.Models
         [Phone]
         [Display(Name = "Contact Number")]
         [MaxLength(10, ErrorMessage = "Mobile Number can not exceed 10 chars.")]
+        [RegularExpression(@"^[6-9]\d{9}$", ErrorMessage = "Enter a valid 10-digit mobile number.")]
         public string MobileNo {  get; set; }
         [Required]
         [EmailAddress]
