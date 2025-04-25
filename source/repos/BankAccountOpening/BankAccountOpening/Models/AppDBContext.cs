@@ -12,7 +12,8 @@ namespace BankAccountOpening.Models
         
         public DbSet<UserDetails> Users { get; set; }
         public DbSet<States> states { get; set; }
-
+        public DbSet<Cities> cities { get; set; }
+        public DbSet<Branch> branches { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

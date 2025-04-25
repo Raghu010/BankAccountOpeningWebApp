@@ -27,6 +27,13 @@ namespace BankAccountOpening.Controllers
         {
             var stateNames = _context.states.ToList();
             ViewBag.States = new SelectList(stateNames, "StateId", "StateName");
+
+            var cityNames = _context.cities.ToList();
+            ViewBag.CityNames = new SelectList(cityNames, "CityId", "CityName");
+
+            var branchNames = _context.branches.ToList();
+            ViewBag.BranchNames = new SelectList(branchNames, "BranchCode", "BranchName");
+
             return View();
         }
 
