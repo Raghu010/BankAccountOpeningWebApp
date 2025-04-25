@@ -18,6 +18,17 @@ namespace BankAccountOpening.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult Quit()
+        {
+            return Content("Application Closed.");
+        }
+
         public IActionResult Privacy()
         {
             return View();
