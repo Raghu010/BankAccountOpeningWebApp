@@ -11,5 +11,13 @@ namespace BankAccountOpening.Models
         }
         
         public DbSet<UserDetails> Users { get; set; }
+        public DbSet<States> states { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Seed();
+        }
+
     }
 }
