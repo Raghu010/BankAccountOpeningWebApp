@@ -41,8 +41,7 @@ namespace BankAccountOpening.Models
         [Display(Name = "Email Address")]
         public string EmailId { get; set; }
         [Required]
-        [Display(Name = "State Name")]
-        public string State { get;set; }
+        public string State { get; set; }
         [Required]
         [Display(Name = "City Name")]
         public string City { get; set; }
