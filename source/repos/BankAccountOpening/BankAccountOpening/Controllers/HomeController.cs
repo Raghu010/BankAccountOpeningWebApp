@@ -25,6 +25,7 @@ namespace BankAccountOpening.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            var model = new UserDetails();
             var stateNames = _context.states.ToList();
             ViewBag.States = new SelectList(stateNames, "StateId", "StateName");
 
@@ -34,7 +35,9 @@ namespace BankAccountOpening.Controllers
             var branchNames = _context.branches.ToList();
             ViewBag.BranchNames = new SelectList(branchNames, "BranchCode", "BranchName");
 
-            return View();
+            var languageNames = _context.languages.ToList();
+            ViewBag.LanguageNames = new SelectList(languageNames, "LanguageCode", "LanguageName");
+            return View(model);
         }
 
         public IActionResult Quit()

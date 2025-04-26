@@ -19,21 +19,26 @@
         </tr>
 
         <tr>
-            <td colspan="6">
+            <td>
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-4">
                         <label>Title:</label>
                         <select asp-for="title" class="form-control" asp-items="Html.GetEnumSelectList<Title>()"></select>
                     </div>
 
                     <div class="col-md-2">
                         <label>First Name:</label>
-                        <input asp-for="FirstName" class="form-control"/>
+                        <input asp-for="FirstName" class="form-control" />
                     </div>
 
                     <div class="col-md-2">
                         <label>Middle Name:</label>
                         <input asp-for="MiddleName" class="form-control" />
+                    </div>
+
+                    <div class="col-md-2">
+                        <label>Last Name:</label>
+                        <input asp-for="LastName" class="form-control" />
                     </div>
 
                     <div class="col-md-2">
@@ -71,37 +76,46 @@
                         <input asp-for="EmailId" class="form-control" />
                     </div>
 
-                    <div class="form-group">
-                        <label asp-for="State" class="control-label">State:</label>
-                        <select asp-for="State" asp-items="ViewBag.States" class="form-control">
-                            <option value="">-- Select State --</option>
-                        </select>
-                        <span asp-validation-for="State" class="text-danger"></span>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label asp-for="State" class="control-label">State:</label>
+                            <select asp-for="State" asp-items="ViewBag.States" class="form-control">
+                                <option value="">-- Select State --</option>
+                            </select>
+                            <span asp-validation-for="State" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="City" class="control-label">City:</label>
+                            <select asp-for="City" asp-items="ViewBag.CityNames" class="form-control">
+                                <option value="">-- Select City --</option>
+                            </select>
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="BranchName" class="control-label">Branch Name:</label>
+                            <select asp-for="BranchName" asp-items="ViewBag.BranchNames" class="form-control">
+                                <option value="">-- Select Branch --</option>
+                            </select>
+                            <span asp-validation-for="BranchName" class="text-danger"></span>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label asp-for="City" class="control-label">City:</label>
-                        <select asp-for="City" asp-items="ViewBag.CityNames" class="form-control">
-                            <option value="">-- Select City --</option>
-                        </select>
-                        <span asp-validation-for="City" class="text-danger"></span>
+                    <div>
+                        <div class="col-md-4">
+                            <label>Type of Account:</label>
+                            <select asp-for="TypeOfAccount" class="form-control" asp-items="Html.GetEnumSelectList<AccountType>()"></select>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label asp-for="BranchName" class="control-label">Branch Name:</label>
-                        <select asp-for="BranchName" asp-items="ViewBag.BranchNames" class="form-control">
-                            <option value="">-- Select Branch --</option>
-                        </select>
-                        <span asp-validation-for="BranchName" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label>Type of Account:</label>
-                        <select asp-for="TypeOfAccount" class="form-control" asp-items="Html.GetEnumSelectList<AccountType>()"></select>
-                    </div>
-
-
                 </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center">
+                <button type="submit" class="btn btn-primary mx-2">Save</button>
+                <a asp-action="Index" asp-controller="Home" class="btn btn-danger mx-2">Cancel</a>
             </td>
         </tr>
     </table>

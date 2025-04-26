@@ -21,11 +21,10 @@ namespace BankAccountOpening.Models
         public string LastName { get; set; }
         [Required]
         public Gender Sex { get; set; }
-        public DateOnly DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         [Required]
-        public int Age => DateTime.Now.Year - DateOfBirth.Year;
+        public int Age = 0;
         [MaxLength(10, ErrorMessage = "Mobile Number can not exceed 10 chars.")]
-        
         public string StdCode { get; set; }
         [MaxLength(10, ErrorMessage = "Mobile Number can not exceed 10 chars.")]
         public string Telephone { get; set; }
@@ -52,7 +51,7 @@ namespace BankAccountOpening.Models
         [Display(Name = "Account Type")]
         public AccountType TypeOfAccount { get; set; }
         [Required]
-        public string PrefferedLanguage { get; set; }
+        public string PrefferedLanguage { get; set; } = string.Empty;
 
     }
 }
