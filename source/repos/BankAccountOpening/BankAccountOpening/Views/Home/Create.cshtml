@@ -1,6 +1,7 @@
 ﻿@model BankAccountOpening.Models.UserDetails
 
 <form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
     <table class="table table-bordered w-100">
         <tr>
             <td colspan="6" class="text-center">
@@ -29,6 +30,7 @@
                     <div class="col-md-2">
                         <label>First Name:</label>
                         <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-2">
@@ -39,41 +41,49 @@
                     <div class="col-md-2">
                         <label>Last Name:</label>
                         <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-2">
                         <label>Gender:</label>
                         <select asp-for="Sex" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()"></select>
+                        <span asp-validation-for="Sex" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-2">
                         <label>Date of Birth:</label>
                         <input asp-for="DateOfBirth" class="form-control" />
+                        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-2">
                         <label>Age:</label>
                         <input asp-for="Age" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-2">
                         <label>STD Code:</label>
                         <input asp-for="StdCode" class="form-control" />
+                        <span asp-validation-for="StdCode" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-2">
                         <label>Telephone:</label>
                         <input asp-for="Telephone" class="form-control" />
+                        <span asp-validation-for="Telephone" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-2">
                         <label>Mobile Number:</label>
                         <input asp-for="MobileNo" class="form-control" />
+                        <span asp-validation-for="MobileNo" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-2">
                         <label>email id:</label>
                         <input asp-for="EmailId" class="form-control" />
+                        <span asp-validation-for="EmailId" class="text-danger"></span>
                     </div>
 
                     <div class="row">
@@ -102,10 +112,19 @@
                         </div>
                     </div>
 
-                    <div>
-                        <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-6">
                             <label>Type of Account:</label>
                             <select asp-for="TypeOfAccount" class="form-control" asp-items="Html.GetEnumSelectList<AccountType>()"></select>
+                            <span asp-validation-for="TypeOfAccount" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="PrefferedLanguage" class="control-label">Preferred Language of Communication:</label>
+                            <select asp-for="PrefferedLanguage" asp-items="ViewBag.LanguageNames" class="form-control">
+                                <option value="">-- Select Language --</option>
+                            </select>
+                            <span asp-validation-for="PrefferedLanguage" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -120,3 +139,22 @@
         </tr>
     </table>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.getElementById('DateOfBirth').addEventListener('change', function () {
+            var dob = new Date(this.value);
+            var today = new Date();
+            var age = today.getFullYear() - dob.getFullYear();
+            var m = today.getMonth() - dob.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+            document.getElementById('Age').value = age;
+        });
+    </script>
+}
+
+

@@ -21,10 +21,10 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var account in Model)
+        @foreach (var account in Model)
         {
             <tr>
-                <td>@account.dateTime</td>
+                <td>@account.CreatedDate</td>
                 <td>@account.FormNo</td>
                 <td>@account.title</td>
                 <td>@account.FirstName</td>
@@ -46,5 +46,3 @@
         </tr>
     </tbody>
 </table>
-
-

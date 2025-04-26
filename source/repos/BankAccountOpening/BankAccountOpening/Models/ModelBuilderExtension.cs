@@ -6,6 +6,25 @@ namespace BankAccountOpening.Models
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Languages>().HasData(
+                new Languages { languageCode = 1, languageName = "Hindi" },
+                new Languages { languageCode = 2, languageName = "Bengali" },
+                new Languages { languageCode = 3, languageName = "Telugu" },
+                new Languages { languageCode = 4, languageName = "Marathi" },
+                new Languages { languageCode = 5, languageName = "Tamil" },
+                new Languages { languageCode = 6, languageName = "Urdu" },
+                new Languages { languageCode = 7, languageName = "Gujarati" },
+                new Languages { languageCode = 8, languageName = "Malayalam" },
+                new Languages { languageCode = 9, languageName = "Punjabi" },
+                new Languages { languageCode = 10, languageName = "Odia" },
+                new Languages { languageCode = 11, languageName = "Kannada" },
+                new Languages { languageCode = 12, languageName = "Assamese" },
+                new Languages { languageCode = 13, languageName = "Maithili" },
+                new Languages { languageCode = 14, languageName = "Santali" },
+                new Languages { languageCode = 15, languageName = "Konkani" },
+                new Languages { languageCode = 16, languageName = "English"}
+            );
+
             modelBuilder.Entity<States>().HasData(
             new States { StateId = 1, StateName = "Andhra Pradesh" },
             new States { StateId = 2, StateName = "Arunachal Pradesh" },
@@ -160,24 +179,6 @@ namespace BankAccountOpening.Models
             }
 
             modelBuilder.Entity<Branch>().HasData(branches);
-
-            modelBuilder.Entity<Languages>().HasData(
-                new Languages { languageCode = 1, languageName = "Hindi" },
-                new Languages { languageCode = 2, languageName = "Bengali" },
-                new Languages { languageCode = 3, languageName = "Telugu" },
-                new Languages { languageCode = 4, languageName = "Marathi" },
-                new Languages { languageCode = 5, languageName = "Tamil" },
-                new Languages { languageCode = 6, languageName = "Urdu" },
-                new Languages { languageCode = 7, languageName = "Gujarati" },
-                new Languages { languageCode = 8, languageName = "Malayalam" },
-                new Languages { languageCode = 9, languageName = "Punjabi" },
-                new Languages { languageCode = 10, languageName = "Odia" },
-                new Languages { languageCode = 11, languageName = "Kannada" },
-                new Languages { languageCode = 12, languageName = "Assamese" },
-                new Languages { languageCode = 13, languageName = "Maithili" },
-                new Languages { languageCode = 14, languageName = "Santali" },
-                new Languages { languageCode = 15, languageName = "Konkani" }
-            );
         }
     }
 }

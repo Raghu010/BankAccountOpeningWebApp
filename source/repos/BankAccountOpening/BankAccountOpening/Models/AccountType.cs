@@ -2,7 +2,7 @@
 {
     public enum AccountType
     {
-        Savings,
+        Savings = 1,
         Current,
         RecurringDeposits,
         TermLoan

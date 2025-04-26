@@ -2,7 +2,7 @@
 {
     public enum Title
     {
-        Mr,
+        Mr = 1,
         Ms,
         Mrs,
         Mst,

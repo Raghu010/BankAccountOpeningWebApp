@@ -18,26 +18,48 @@ namespace BankAccountOpening.Controllers
 
         public IActionResult Index()
         {
-            var users = _context.Users.ToList();
-            return View(users);
+            var today = DateTime.Today;
+
+            var todaysRecords = _context.Users
+                .Where(u => u.CreatedDate.Date == today)
+                .ToList();
+
+            return View(todaysRecords);
         }
+
 
         [HttpGet]
         public IActionResult Create()
         {
-            var model = new UserDetails();
+            int nextFormNumber = _context.Users.Max(u => (int?)u.FormNo ?? 0) + 1;
+            var model = new UserDetails
+            {
+                FormNo = nextFormNumber
+            };
+
             var stateNames = _context.states.ToList();
-            ViewBag.States = new SelectList(stateNames, "StateId", "StateName");
+            ViewBag.States = new SelectList(_context.states.Select(x => x.StateName).ToList());
 
             var cityNames = _context.cities.ToList();
-            ViewBag.CityNames = new SelectList(cityNames, "CityId", "CityName");
+            ViewBag.CityNames = new SelectList(_context.cities.Select(x => x.CityName).ToList());
 
             var branchNames = _context.branches.ToList();
-            ViewBag.BranchNames = new SelectList(branchNames, "BranchCode", "BranchName");
+            ViewBag.BranchNames = new SelectList(_context.branches.Select(x => x.BranchName).ToList());
 
             var languageNames = _context.languages.ToList();
-            ViewBag.LanguageNames = new SelectList(languageNames, "LanguageCode", "LanguageName");
+            ViewBag.LanguageNames = new SelectList(_context.languages.Select(x => x.languageName).ToList());
+
             return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(UserDetails userData)
+        {
+            userData.CreatedDate = DateTime.Now;
+            _context.Users.Add(userData);
+            _context.SaveChanges();
+            return RedirectToAction("Index", new { FormNo = userData.FormNo });
         }
 
         public IActionResult Quit()

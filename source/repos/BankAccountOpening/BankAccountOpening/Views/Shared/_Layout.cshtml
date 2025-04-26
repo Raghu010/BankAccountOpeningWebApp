@@ -45,5 +45,13 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        document.querySelectorAll("input[type='text'], input[type='email'], input[type='tel']").forEach(function (input) {
+            input.addEventListener("input", function () {
+                this.value = this.value.toUpperCase();
+            });
+        });
+    </script>
 </body>
 </html>
