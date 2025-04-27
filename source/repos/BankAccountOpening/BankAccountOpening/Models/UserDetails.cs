@@ -14,11 +14,14 @@ namespace BankAccountOpening.Models
         public Title title { get; set; }
         [Required]
         [MaxLength(30, ErrorMessage ="FirstName can not exceed 30 chars.")]
+        [RegularExpression("^[A-Z]+$", ErrorMessage = "Only upper case characters are allowed")]
         public string FirstName { get; set; }
         [MaxLength(30, ErrorMessage = "MiddleName can not exceed 30 chars.")]
+        [RegularExpression("^[A-Z]+$", ErrorMessage = "Only upper case characters are allowed")]
         public string? MiddleName { get; set; }
         [Required]
         [MaxLength(30, ErrorMessage = "LastName can not exceed 30 chars.")]
+        [RegularExpression("^[A-Z]+$", ErrorMessage = "Only upper case characters are allowed")]
         public string LastName { get; set; }
         [Required]
         public Gender Sex { get; set; }
@@ -58,6 +61,5 @@ namespace BankAccountOpening.Models
         public AccountType TypeOfAccount { get; set; }
         [Required]
         public string PrefferedLanguage { get; set; } = string.Empty;
-
     }
 }
