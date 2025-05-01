@@ -5,9 +5,7 @@
     <table class="table table-bordered w-100">
         <tr>
             <td colspan="6" class="text-center">
-                <h3>
-                    Bank Account Opening Form
-                </h3>
+                <h3>Bank Account Opening Form</h3>
             </td>
         </tr>
 
@@ -21,72 +19,74 @@
 
         <tr>
             <td>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label>Title:</label>
-                        <select asp-for="title" class="form-control" asp-items="Html.GetEnumSelectList<Title>()"></select>
+                <div class="container">
+                    <div class="row mb-3">
+                        <div class="col-md-2">
+                            <label>Title:</label>
+                            <select id="title" name="title" class="form-control">
+                                <option value="">-- Select Title --</option>
+                                @foreach (var item in ViewBag.TitleList)
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            </select>
+                            <span asp-validation-for="title" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-2">
+                            <label>First Name:</label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Middle Name:</label>
+                            <input asp-for="MiddleName" class="form-control" />
+                        </div>
+                        <div class="col-md-2">
+                            <label>Last Name:</label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Gender:</label>
+                            <input type="text" id="Sex" name="Sex" class="form-control" readonly />
+                            <span asp-validation-for="Sex" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Date of Birth:</label>
+                            <input asp-for="DateOfBirth" class="form-control" />
+                            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                        </div>
                     </div>
 
-                    <div class="col-md-2">
-                        <label>First Name:</label>
-                        <input asp-for="FirstName" class="form-control" />
-                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    <div class="row mb-3">
+                        <div class="col-md-2">
+                            <label>Age:</label>
+                            <input asp-for="Age" class="form-control" />
+                            <span asp-validation-for="Age" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-2">
+                            <label>STD Code:</label>
+                            <input asp-for="StdCode" class="form-control" />
+                            <span asp-validation-for="StdCode" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Telephone:</label>
+                            <input asp-for="Telephone" class="form-control" />
+                            <span asp-validation-for="Telephone" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Mobile Number:</label>
+                            <input asp-for="MobileNo" class="form-control" />
+                            <span asp-validation-for="MobileNo" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Email ID:</label>
+                            <input asp-for="EmailId" class="form-control" />
+                            <span asp-validation-for="EmailId" class="text-danger"></span>
+                        </div>
                     </div>
 
-                    <div class="col-md-2">
-                        <label>Middle Name:</label>
-                        <input asp-for="MiddleName" class="form-control" />
-                    </div>
-
-                    <div class="col-md-2">
-                        <label>Last Name:</label>
-                        <input asp-for="LastName" class="form-control" />
-                        <span asp-validation-for="LastName" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label>Gender:</label>
-                        <select asp-for="Sex" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()"></select>
-                        <span asp-validation-for="Sex" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label>Date of Birth:</label>
-                        <input asp-for="DateOfBirth" class="form-control" />
-                        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label>Age:</label>
-                        <input asp-for="Age" class="form-control" />
-                        <span asp-validation-for="Age" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label>STD Code:</label>
-                        <input asp-for="StdCode" class="form-control" />
-                        <span asp-validation-for="StdCode" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label>Telephone:</label>
-                        <input asp-for="Telephone" class="form-control" />
-                        <span asp-validation-for="Telephone" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label>Mobile Number:</label>
-                        <input asp-for="MobileNo" class="form-control" />
-                        <span asp-validation-for="MobileNo" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label>email id:</label>
-                        <input asp-for="EmailId" class="form-control" />
-                        <span asp-validation-for="EmailId" class="text-danger"></span>
-                    </div>
-
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col-md-4">
                             <label asp-for="State" class="control-label">State:</label>
                             <select asp-for="State" asp-items="ViewBag.States" class="form-control">
@@ -94,7 +94,6 @@
                             </select>
                             <span asp-validation-for="State" class="text-danger"></span>
                         </div>
-
                         <div class="col-md-4">
                             <label asp-for="City" class="control-label">City:</label>
                             <select asp-for="City" asp-items="ViewBag.CityNames" class="form-control">
@@ -102,7 +101,6 @@
                             </select>
                             <span asp-validation-for="City" class="text-danger"></span>
                         </div>
-
                         <div class="col-md-4">
                             <label asp-for="BranchName" class="control-label">Branch Name:</label>
                             <select asp-for="BranchName" asp-items="ViewBag.BranchNames" class="form-control">
@@ -112,13 +110,12 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col-md-6">
                             <label>Type of Account:</label>
                             <select asp-for="TypeOfAccount" class="form-control" asp-items="Html.GetEnumSelectList<AccountType>()"></select>
                             <span asp-validation-for="TypeOfAccount" class="text-danger"></span>
                         </div>
-
                         <div class="col-md-6">
                             <label asp-for="PrefferedLanguage" class="control-label">Preferred Language of Communication:</label>
                             <select asp-for="PrefferedLanguage" asp-items="ViewBag.LanguageNames" class="form-control">
@@ -127,20 +124,21 @@
                             <span asp-validation-for="PrefferedLanguage" class="text-danger"></span>
                         </div>
                     </div>
-                </div>
-            </td>
-        </tr>
 
-        <tr>
-            <td class="text-center">
-                <button type="submit" class="btn btn-primary mx-2">Save</button>
-                <a asp-action="Index" asp-controller="Home" class="btn btn-danger mx-2">Cancel</a>
+                    <div class="row text-center">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary mx-2">Save</button>
+                            <a asp-action="Index" asp-controller="Home" class="btn btn-danger mx-2">Cancel</a>
+                        </div>
+                    </div>
+                </div>
             </td>
         </tr>
     </table>
 </form>
 
 @section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <partial name="_ValidationScriptsPartial" />
 
     <script>
@@ -154,7 +152,19 @@
             }
             document.getElementById('Age').value = age;
         });
+
+        $(document).ready(function () {
+            $('#title').change(function () {
+                var title = $(this).val();
+                var sex = '';
+
+                if (title === 'Mr' || title === 'Mst') {
+                    sex = 'Male';
+                } else if (title === 'Mrs' || title === 'Ms' || title === 'Baby') {
+                    sex = 'Female';
+                }
+                $('#Sex').val(sex);
+            });
+        });
     </script>
 }
-
-

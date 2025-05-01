@@ -22,7 +22,7 @@ namespace BankAccountOpening.Models
                 new Languages { languageCode = 13, languageName = "Maithili" },
                 new Languages { languageCode = 14, languageName = "Santali" },
                 new Languages { languageCode = 15, languageName = "Konkani" },
-                new Languages { languageCode = 16, languageName = "English"}
+                new Languages { languageCode = 16, languageName = "English" }
             );
 
             modelBuilder.Entity<States>().HasData(
@@ -55,7 +55,6 @@ namespace BankAccountOpening.Models
             new States { StateId = 27, StateName = "Uttarakhand" },
             new States { StateId = 28, StateName = "West Bengal" },
             new States { StateId = 29, StateName = "Andaman and Nicobar Islands" },
-            new States { StateId = 30, StateName = "Chandigarh" },
             new States { StateId = 31, StateName = "Dadra and Nagar Haveli and Daman and Diu" },
             new States { StateId = 32, StateName = "Delhi" },
             new States { StateId = 33, StateName = "Jammu and Kashmir" },

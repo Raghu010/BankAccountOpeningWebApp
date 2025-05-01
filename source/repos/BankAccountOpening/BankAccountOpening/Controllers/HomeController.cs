@@ -29,13 +29,21 @@ namespace BankAccountOpening.Controllers
 
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             int nextFormNumber = _context.Users.Max(u => (int?)u.FormNo ?? 0) + 1;
             var model = new UserDetails
             {
                 FormNo = nextFormNumber
             };
+
+            ViewBag.TitleList = Enum.GetValues(typeof(Title))
+                            .Cast<Title>()
+                            .Select(t => new SelectListItem
+                            {
+                                Value = t.ToString(),
+                                Text = t.ToString()
+                            }).ToList();
 
             var stateNames = _context.states.ToList();
             ViewBag.States = new SelectList(_context.states.Select(x => x.StateName).ToList());

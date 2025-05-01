@@ -13,7 +13,7 @@ namespace BankAccountOpening.Models
         [Required]
         public Title title { get; set; }
         [Required]
-        [MaxLength(30, ErrorMessage ="FirstName can not exceed 30 chars.")]
+        [MaxLength(30, ErrorMessage = "FirstName can not exceed 30 chars.")]
         [RegularExpression("^[A-Z]+$", ErrorMessage = "Only upper case characters are allowed")]
         public string FirstName { get; set; }
         [MaxLength(30, ErrorMessage = "MiddleName can not exceed 30 chars.")]
@@ -42,7 +42,7 @@ namespace BankAccountOpening.Models
         [Display(Name = "Contact Number")]
         [MaxLength(10, ErrorMessage = "Mobile Number can not exceed 10 chars.")]
         [RegularExpression(@"^[6-9]\d{9}$", ErrorMessage = "Enter a valid 10-digit mobile number.")]
-        public string MobileNo {  get; set; }
+        public string MobileNo { get; set; }
         [Required]
         [EmailAddress]
         [MaxLength(255, ErrorMessage = "Email Address can not exceed 255 chars.")]
